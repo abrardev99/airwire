@@ -7,7 +7,7 @@ on:
 
 jobs:
   phpunit:
-    name: Tests (PHPUnit) L${{ matrix.laravel }}
+    name: Tests (Pest) L${{ matrix.laravel }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,7 +18,7 @@ jobs:
     - name: Install composer dependencies
       run: composer require "laravel/framework:^${{matrix.laravel}}.0"
     - name: Run tests
-      run: vendor/bin/phpunit
+      run: vendor/bin/pest
 
   php-cs-fixer:
     name: Code style (php-cs-fixer)
